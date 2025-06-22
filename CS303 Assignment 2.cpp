@@ -28,8 +28,10 @@ public:
 
 // Linked list class to implement a singly linked list
 template <typename T> class Linkedlist {
-    Node<T>* head; //Pass the template parameter of the enclosing class to the Node template
-    Node<T>* tail; //Pass the template parameter of the enclosing class to the Node template
+    // Private data members
+    Node<T>* head; //<T> to pass the template parameter of the enclosing class to the Node template
+    Node<T>* tail; //<T> to pass the template parameter of the enclosing class to the Node template
+    int num_items; // Number of items in the linked list
 
 public:
     // Default constructor
@@ -37,6 +39,33 @@ public:
         head = NULL;
         tail = NULL;
     }
+    Node<T>* getHead() const { return head; }
+	Node<T>* getTail() const { return tail; }
+
+    int get_numItems() const { //https://www.geeksforgeeks.org/dsa/find-length-of-a-linked-list-iterative-and-recursive/
+        
+        // Initialize num_items with 0
+        int num_items = 0;
+
+        // Initialize curr with head of Linked List
+        Node<T>* curr = head;
+
+        // Traverse till we reach nullptr
+        while (curr != nullptr) {
+
+            // Increment count by 1
+            num_items++;
+
+            // Move pointer to next node
+            curr = curr->next;
+        }
+
+        // Return the count of nodes
+        return num_items;
+    }
+
+
+
 
     // Function to insert a node at the start of the
     // linked list
@@ -189,6 +218,29 @@ public:
         return false;
     }
 
+   // void insert(size_t index, const Item_Type& item); //Insert item at position index
+                                                     //(starting at 0).Insert at the end 
+                                                     // if index is beyond the end of the list
+
+   /* void insert(const Item_Type& data, size_t index)
+    {
+        Node<T> temp1 = new Node();
+		temp1->data = data;
+		temp1->next = NULL;
+
+        if (index == 1) {
+            temp1->next = head;
+            head = temp1;
+            return;
+        }
+        Node<T>* temp2 = head;
+        for (i = 0; i < size_t-2; i++) {
+            temp2 = temp2->next;
+        }
+        temp1->next = temp2->next;
+        temp2->next = temp1;
+    }*/
+
     // Function to print the linked list.
     void print() {
         Node<T>* temp = head;
@@ -204,6 +256,7 @@ public:
             cout << temp->data << " ";
             temp = temp->next;
         } 
+        cout << "\nThere are " << get_numItems() << " items in the list\n";
     }
 
 };
@@ -257,5 +310,7 @@ int main() {
 
 	cout << "Is the list empty?  " << (list.isEmpty() ? "Yes" : "No") << endl;
 
+
+    cout << "Number of items: " << list.get_numItems() << endl;
     return 0;
 }
