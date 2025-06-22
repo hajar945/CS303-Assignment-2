@@ -7,10 +7,10 @@
 using namespace std;
 
 // Node class to represent a node of the linked list.
-
+template <typename T> 
 class Node {
 public:
-    int data;
+    T data;
     Node* next;
 
     // Default constructor
@@ -20,19 +20,18 @@ public:
     }
 
     // Parameterised Constructor
-    Node(int data) {
+    Node(T data) {
         this->data = data;
         this->next = NULL;
     }
 };
 
 // Linked list class to implement a singly linked list
-class Linkedlist {
-    Node* head;
-    Node* tail;
+template <typename T> class Linkedlist {
+    Node<T>* head; //Pass the template parameter of the enclosing class to the Node template
+    Node<T>* tail; //Pass the template parameter of the enclosing class to the Node template
 
 public:
-
     // Default constructor
     Linkedlist() {
         head = NULL;
@@ -41,10 +40,10 @@ public:
 
     // Function to insert a node at the start of the
     // linked list
-    void push_front(int data) {
+    void push_front(T data) {
 
         // Create the new Node
-        Node* newNode = new Node(data);
+        Node<T>* newNode = new Node<T>(data);
 
         // Assign to head of the list is empty
         if (head == NULL) {
@@ -59,10 +58,10 @@ public:
 
     // Function to insert a node at the end of the
     // linked list
-    void push_back(int data) { //https://www.youtube.com/watch?v=AIAhIu0lqnw&ab_channel=RitaKattsyna
+    void push_back(T data) { //https://www.youtube.com/watch?v=AIAhIu0lqnw&ab_channel=RitaKattsyna
 
         // Create the new Node
-        Node* newNode = new Node(data);
+        Node<T>* newNode = new Node<T>(data);
 
         // Assign to head of the list is empty
         if (head == NULL) {
@@ -70,7 +69,7 @@ public:
             return;
         }
         else {
-            Node* temp = head;
+            Node<T>* temp = head;
             while (temp->next != NULL) {
                 temp = temp->next;
             }
@@ -88,7 +87,7 @@ public:
         }
 
         // Store current head in a temporary variable
-        Node* temp = head;
+        Node<T>* temp = head;
 
         // Move head to the next node
         head = head->next;
@@ -119,7 +118,7 @@ public:
         }
 
         // Traverse to the tail node
-        Node* temp = head;
+        Node<T>* temp = head;
         while (temp->next->next != nullptr) {
             temp = temp->next;
         }
@@ -128,12 +127,12 @@ public:
         delete temp->next;
         temp->next = nullptr;
         cout << "tail node deleted successfully." << endl;
-
+        
     }
 
     // Function to return the head node
-    int headNode() {
-        Node* temp = head;
+    T headNode() {
+        Node<T>* temp = head;
 
         // Check for empty list
         if (head == NULL) {
@@ -148,7 +147,7 @@ public:
     }
 
     // Function to return the tail node
-    int tailNode() {
+    T tailNode() {
         // Check if the list is empty
         if (head == nullptr) {
             cout << "List is empty, nothing to delete." << endl;
@@ -163,7 +162,7 @@ public:
         }
 
         // Traverse to the tail node
-        Node* temp = head;
+        Node<T>* temp = head;
 
         while (temp->next->next != nullptr) {
             temp = temp->next;
@@ -192,7 +191,7 @@ public:
 
     // Function to print the linked list.
     void print() {
-        Node* temp = head;
+        Node<T>* temp = head;
 
         // Check for empty list
         if (head == NULL) {
@@ -212,26 +211,26 @@ public:
 int main() {
 
     // Creating a LinkedList object
-    Linkedlist list;
+    Linkedlist<char> list;
 
     // Inserting nodes
-    list.push_front(4);
-    list.push_front(3);
-    list.push_front(2);
-    list.push_front(1);
+    list.push_front('D');
+    list.push_front('C');
+    list.push_front('B');
+    list.push_front('A');
 
     cout << "Elements of the list are: ";
 
     // Print the list
     list.print();
     cout << endl << endl;
-    list.push_back(5);
+    list.push_back('E');
     cout << "After a push_back: ";
 
     // Print the list
     list.print();
     cout << endl << endl;
-    list.push_front(10);
+    list.push_front('Z');
 
     cout << "After a push_front: ";
 
