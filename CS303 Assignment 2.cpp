@@ -7,6 +7,7 @@
 using namespace std;
 
 // Node class to represent a node of the linked list.
+
 class Node {
 public:
     int data;
@@ -31,6 +32,7 @@ class Linkedlist {
     Node* tail;
 
 public:
+
     // Default constructor
     Linkedlist() {
         head = NULL;
@@ -128,6 +130,66 @@ public:
         cout << "tail node deleted successfully." << endl;
 
     }
+
+    // Function to return the head node
+    int headNode() {
+        Node* temp = head;
+
+        // Check for empty list
+        if (head == NULL) {
+            cout << "List empty" << endl;
+            return 0;
+        }
+
+        // Traverse the list
+        if (temp != NULL) {
+			return temp->data;
+        }
+    }
+
+    // Function to return the tail node
+    int tailNode() {
+        // Check if the list is empty
+        if (head == nullptr) {
+            cout << "List is empty, nothing to delete." << endl;
+            return 0;
+        }
+
+        // Check if it contains only one element
+        if (head->next == nullptr) {
+            delete head;
+            head = nullptr;
+            return 0;
+        }
+
+        // Traverse to the tail node
+        Node* temp = head;
+
+        while (temp->next->next != nullptr) {
+            temp = temp->next;
+        }
+        return temp->next->data;
+
+    }
+
+    // Function to check if list is empty
+    bool isEmpty() {
+        // Check if the list is empty
+        if (head == nullptr) {
+            cout << "List is empty, nothing to delete." << endl;
+            return true;
+        } cout << "List is not empty." << endl;
+
+        // Check if it contains only one element
+        if (head->next == nullptr) {
+            delete head;
+            head = nullptr;
+            cout << "List contains only one element." << endl;
+            return 0;
+        } cout << "List contains more than one element." << endl;
+        return false;
+    }
+
     // Function to print the linked list.
     void print() {
         Node* temp = head;
@@ -142,7 +204,7 @@ public:
         while (temp != NULL) {
             cout << temp->data << " ";
             temp = temp->next;
-        }
+        } 
     }
 
 };
@@ -169,7 +231,7 @@ int main() {
     // Print the list
     list.print();
     cout << endl << endl;
-    list.push_front(0);
+    list.push_front(10);
 
     cout << "After a push_front: ";
 
@@ -189,5 +251,12 @@ int main() {
     // Print the list
     list.print();
     cout << endl << endl;
+
+
+    cout << "The head node is: " << list.headNode() << endl;
+    cout << "The tail node is: " << list.tailNode() << endl;
+
+	cout << "Is the list empty?  " << (list.isEmpty() ? "Yes" : "No") << endl;
+
     return 0;
 }
