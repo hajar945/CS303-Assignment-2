@@ -9,18 +9,10 @@ class Node {
 public:
     T data;
     Node* next;
-
     // Default constructor
-    Node() {
-        data = 0;
-        next = NULL;
-    }
-
+    Node();
     // Parameterised Constructor
-    Node(T data) {
-        this->data = data;
-        this->next = NULL;
-    }
+    Node(T data);
 };
 
 // Linked list class to implement a singly linked list
@@ -30,118 +22,25 @@ template <typename T> class Linkedlist {
 
 public:
     // Default constructor
-    Linkedlist() {
-        head = NULL;
-        tail = NULL;
-    }
+    Linkedlist();
 
     // Function to insert a node at the start of the
     // linked list
-    void push_front(T data) {
-
-        // Create the new Node
-        Node<T>* newNode = new Node<T>(data);
-
-        // Assign to head of the list is empty
-        if (head == NULL) {
-            head = newNode;
-            return;
-        }
-
-        // Insert the newly created linked list at the head
-        newNode->next = this->head;
-        this->head = newNode;
-    }
+    void push_front(T data);
 
     // Function to insert a node at the end of the
     // linked list
-    void push_back(T data) { //https://www.youtube.com/watch?v=AIAhIu0lqnw&ab_channel=RitaKattsyna
+    void push_back(T data);
 
-        // Create the new Node
-        Node<T>* newNode = new Node<T>(data);
-
-        // Assign to head of the list is empty
-        if (head == NULL) {
-            head = newNode;
-            return;
-        }
-        else {
-            Node<T>* temp = head;
-            while (temp->next != NULL) {
-                temp = temp->next;
-            }
-            temp->next = newNode;
-        }
-    }
     // Function to remove a node at the start of the
        // linked list
-    void pop_front() { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/
-
-
-        if (head == nullptr) {
-            cout << "List is empty, nothing to delete." << endl;
-            return;
-        }
-
-        // Store current head in a temporary variable
-        Node<T>* temp = head;
-
-        // Move head to the next node
-        head = head->next;
-
-        // Delete the old head node
-        delete temp;
-        cout << "Head node deleted successfully." << endl;
-
-    }
-
-
+    void pop_front(); 
     // Function to remove a node at the end of the
     // linked list
-    void pop_back() { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/
-
-
-        // Check if the list is empty
-        if (head == nullptr) {
-            cout << "List is empty, nothing to delete." << endl;
-            return;
-        }
-
-        // Check if it contains only one element
-        if (head->next == nullptr) {
-            delete head;
-            head = nullptr;
-            return;
-        }
-
-        // Traverse to the tail node
-        Node<T>* temp = head;
-        while (temp->next->next != nullptr) {
-            temp = temp->next;
-        }
-
-        // delete the tail node
-        delete temp->next;
-        temp->next = nullptr;
-        cout << "tail node deleted successfully." << endl;
-
-    }
+    void pop_back();
 
     // Function to return the head node
-    T headNode() {
-        Node<T>* temp = head;
-
-        // Check for empty list
-        if (head == NULL) {
-            cout << "List empty" << endl;
-            return 0;
-        }
-
-        // Traverse the list
-        if (temp != NULL) {
-            return temp->data;
-        }
-    }
+    T headNode();
 
     // Function to return the tail node
     T tailNode() {
