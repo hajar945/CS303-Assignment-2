@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="CS303 Assignment 2.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
