@@ -29,5 +29,8 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="LinkedList_Functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
