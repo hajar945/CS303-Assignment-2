@@ -218,29 +218,95 @@ public:
         return false;
     }
 
-   // void insert(size_t index, const Item_Type& item); //Insert item at position index
-                                                     //(starting at 0).Insert at the end 
-                                                     // if index is beyond the end of the list
+   //Insert item at position index
+   //(starting at 0).Insert at the end 
+   // if index is beyond the end of the list
+    void insert(T data, int index) { // https://takeuforward.org/data-structure/insert-at-given-position-in-linked-list/
 
-   /* void insert(const Item_Type& data, size_t index)
-    {
-        Node<T> temp1 = new Node();
-		temp1->data = data;
-		temp1->next = NULL;
-
-        if (index == 1) {
-            temp1->next = head;
-            head = temp1;
+        // Check if list is empty
+        if (head == nullptr) {
+            cout << "\nList is empty." << endl;
             return;
         }
-        Node<T>* temp2 = head;
-        for (i = 0; i < size_t-2; i++) {
-            temp2 = temp2->next;
-        }
-        temp1->next = temp2->next;
-        temp2->next = temp1;
-    }*/
 
+      // ListNode* newnode = new ListNode(value);
+		cout << "\nEnter the data to insert: ";
+        
+		if (!(cin >> data)) { // Check if input is valid
+			cout << "Invalid input. Please enter a valid data type." << endl;
+			cin.clear(); // Clear the error flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+			return; // Exit the function
+		}
+
+		cout << "\n\nEnter the index to insert the new node: ";
+        cin >> index;
+       // Create the new Node
+       Node<T>* newNode = new Node<T>(data);
+
+       if (index < get_numItems()) { // Index can't be equal to len
+           if (index == 0) {                 // and can't be negative 
+               newNode->next = head;
+               head = newNode;
+           }
+           else {
+               Node<T>* curr = head;
+               while (--index)
+                   curr = curr->next;
+               newNode->next = curr->next;
+               curr->next = newNode;
+           }
+       }
+       else {
+           cout << "Invalid Positon. Data will be pushed back" << endl;
+           push_back(data);
+       }
+   }
+
+    //Remove the item at position index.Return true if successful;
+    // return false if index is beyond the end of the list.
+    bool remove(int index) { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/#3-delete-a-node-at-a-specific-position
+		cout << "Please enter an index to remove: ";
+		cin >> index;
+		// Check if index is valid
+		if (index < 0 || index >= get_numItems()) {
+			cout << "Invalid index." << endl;
+			return false;
+		}
+		Node<T>* head = getHead(); // Get the head of the list
+
+        if (head == nullptr) {
+            cout << "List is empty." << endl;
+            return 0;
+        }
+
+        // Deleting head node
+        if (index == 0) {
+            Node<T>* temp = head;
+            head = head->next;
+            delete temp;
+            return true;
+        }
+
+        // Traverse to the node before the target position
+        Node<T>* current = head;
+        for (int i = 0; i < index - 1 && current != nullptr; i++) {
+            current = current->next;
+        }
+
+        // If position is greater than the number of nodes
+        if (current == nullptr || current->next == nullptr) {
+            cout << "Position exceeds list length." << endl;
+            return false;
+        }
+
+        // Delete the node at the target position
+        Node<T>* temp = current->next;
+        current->next = temp->next;
+        delete temp;
+        return true;
+
+    }
     // Function to print the linked list.
     void print() {
         Node<T>* temp = head;
@@ -312,5 +378,16 @@ int main() {
 
 
     cout << "Number of items: " << list.get_numItems() << endl;
+
+    list.insert(4, 2);
+
+    cout << endl << endl;
+    // Print the list
+    list.print();
+  
+
+    list.remove(2);
+    // Print the list
+    list.print();
     return 0;
 }
