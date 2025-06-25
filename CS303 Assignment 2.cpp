@@ -1,9 +1,8 @@
 // CS303 Assignment 2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-// C++ program to implement singly linked list using a class
-//https://www.geeksforgeeks.org/program-to-implement-singly-linked-list-in-c-using-class/
 #include <iostream>
+#include "LinkedList.h"
 using namespace std;
 
 // Node class to represent a node of the linked list.
