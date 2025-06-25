@@ -187,7 +187,7 @@ T LinkedList<T>::tailNode() {
 
     // Check if it contains only one element
     if (head->next == nullptr) {
-        delete head;
+      //  delete head;
         head = nullptr;
         return 0;
     }
@@ -213,7 +213,7 @@ bool LinkedList<T>::isEmpty() {
 
     // Check if it contains only one element
     if (head->next == nullptr) {
-        delete head;
+       // delete head;
         head = nullptr;
         cout << "List contains only one element." << endl;
         return 0;
@@ -290,6 +290,7 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
         Node<T>* temp = head;
         head = head->next;
         delete temp;
+		cout << "\n\nYou entered index 0, head node deleted successfully." << endl;
         return true;
     }
 
@@ -299,7 +300,7 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
         current = current->next;
     }
 
-    // If position is greater than the number of nodes
+     // If position is greater than the number of nodes
     if (current == nullptr || current->next == nullptr) {
         cout << "Position exceeds list length." << endl;
         return false;
@@ -326,6 +327,7 @@ void LinkedList<T>::print() {
 
     // Traverse the list
     while (temp != NULL) {
+        cout << "debuggg\n";
         cout << temp->data << " ";
         temp = temp->next;
     }

@@ -14,7 +14,7 @@ int main() {
 
     // Creating a LinkedList object
     LinkedList<char> list;
-    /*
+    
     // Inserting nodes
     list.push_front('D');
     list.push_front('C');
@@ -73,7 +73,7 @@ int main() {
     // Print the list
     list.print();
 
-    */
+    
 
     return 0;
 }
