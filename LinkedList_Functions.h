@@ -141,7 +141,7 @@ void LinkedList<T>::pop_back() { // https://www.geeksforgeeks.org/cpp-program-fo
 
     // Check if it contains only one element
     if (head->next == nullptr) {
-        delete head;
+       // delete head;
         head = nullptr;
         return;
     }
@@ -278,11 +278,12 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
         cout << "Invalid index." << endl;
         return false;
     }
-    Node<T>* head = getHead(); // Get the head of the list
+    // Node<T>* head = getHead(); // Get the head of the list // // Use the class's 'head' 
+                                                                 // pointer directly so changes affect the real list
 
     if (head == nullptr) {
         cout << "List is empty." << endl;
-        return 0;
+        return false;
     }
 
     // Deleting head node
@@ -290,7 +291,6 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
         Node<T>* temp = head;
         head = head->next;
         delete temp;
-		cout << "\n\nYou entered index 0, head node deleted successfully." << endl;
         return true;
     }
 
@@ -327,7 +327,6 @@ void LinkedList<T>::print() {
 
     // Traverse the list
     while (temp != NULL) {
-        cout << "debuggg\n";
         cout << temp->data << " ";
         temp = temp->next;
     }
