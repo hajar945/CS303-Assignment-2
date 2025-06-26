@@ -7,7 +7,7 @@
 #include "LinkedList.h"
 #include "LinkedList_Functions.h"
 
-#include "Stack.cpp"
+#include "Stack.h"
 using namespace std;
 
 
@@ -98,6 +98,8 @@ int main() {
 
 	cout << "After popping the top element, the new top is: " << mystack.top() << endl;
 
-	cout << "Average is : " << mystack.findavg(total, avg);
+  
+
+    cout << "Average is : " << mystack.findavg(total, avg);
     return 0;
 }
