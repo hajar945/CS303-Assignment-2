@@ -1,7 +1,7 @@
 /* Write a C++ program to implement a stack of integers using a vector with
    push and pop operations.
   Perform the following operations:
-	1) Create a stack object.
+	x 1) Create a stack object.
 	x 2) Check the stack is empty or not.
 	x 3) Insert some integer values onto the stack.
 	x 4) Remove an element from the stack.

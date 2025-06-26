@@ -78,5 +78,26 @@ int main() {
     list.FindFirst('B');
     list.print();
 
+
+
+	cout << "\n\n ------ STACK IMPLEMENTATION ---\n\n";
+	
+    vector_based_stack mystack; // x 1) Create a stack object.
+
+	cout << "Is the stack empty? " << (mystack.empty() ? "Yes" : "No") << endl; // x 2) Check the stack is empty or not.
+
+	mystack.push(30); // x 3) Insert some integer values onto the stack.
+    mystack.push(40);
+    mystack.push(60);
+    mystack.push(70);
+    mystack.push(90);
+
+	cout << "Top element of the stack: " << mystack.top() << endl; // x 5) Find the Top of the stack.
+
+	mystack.pop(); // x 4) Remove an element from the stack.
+
+	cout << "After popping the top element, the new top is: " << mystack.top() << endl;
+
+	cout << "Average is : " << mystack.findavg(total, avg);
     return 0;
 }
