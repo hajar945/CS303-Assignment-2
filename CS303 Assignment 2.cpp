@@ -98,7 +98,8 @@ int main() {
 
 	cout << "After popping the top element, the new top is: " << mystack.top() << endl;
 
-  
+    int total = 0; // Declare and initialize 'total'  
+    int avg = 0;   // Declare and initialize 'avg'  
 
     cout << "Average is : " << mystack.findavg(total, avg);
     return 0;
