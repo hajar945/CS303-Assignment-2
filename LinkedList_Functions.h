@@ -226,7 +226,7 @@ bool LinkedList<T>::isEmpty() {
 //(starting at 0).Insert at the end 
 // if index is beyond the end of the list
 template <typename T>
-void LinkedList<T>::insert(T data, int index) { // https://takeuforward.org/data-structure/insert-at-given-position-in-linked-list/
+void LinkedList<T>::insert(const T& data, size_t index) { // https://takeuforward.org/data-structure/insert-at-given-position-in-linked-list/
 
     // Check if list is empty
     if (head == nullptr) {
@@ -234,7 +234,7 @@ void LinkedList<T>::insert(T data, int index) { // https://takeuforward.org/data
         return;
     }
 
-    // ListNode* newnode = new ListNode(value);
+    /* // ListNode* newnode = new ListNode(value);
     cout << "\nEnter the data to insert: ";
 
     if (!(cin >> data)) { // Check if input is valid
@@ -242,10 +242,13 @@ void LinkedList<T>::insert(T data, int index) { // https://takeuforward.org/data
         cin.clear(); // Clear the error flag
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
         return; // Exit the function
-    }
+    } can't do this because data is constant 
 
     cout << "\n\nEnter the index to insert the new node: ";
-    cin >> index;
+    cin >> index;*/
+
+	cout << "\nThe data to insert is: " << data << endl;
+	cout << " \tat the index: " << index << endl;
     // Create the new Node
     Node<T>* newNode = new Node<T>(data);
 
@@ -271,12 +274,12 @@ void LinkedList<T>::insert(T data, int index) { // https://takeuforward.org/data
 //Remove the item at position index. Return true if successful;
 // return false if index is beyond the end of the list.
 template <typename T>
-bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/#3-delete-a-node-at-a-specific-position
+bool LinkedList<T>::remove(size_t index) { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/#3-delete-a-node-at-a-specific-position
     cout << "Please enter an index to remove: ";
     cin >> index;
     // Check if index is valid
     if (index < 0 || index >= get_numItems()) {
-        cout << "Invalid index." << endl;
+        cout << "Invalid index. No items removed" << endl;
         return false;
     }
     // Node<T>* head = getHead(); // Get the head of the list // // Use the class's 'head' 
@@ -316,9 +319,8 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
 }
 
 template <typename T>
-size_t LinkedList<T>::FindFirst(const T& item) { //Return the position of the first occurrence 
-                                                // of item if it is found. Return the size 
-    size_t index = 0; // Initialize index to 0
+size_t LinkedList<T>::FindFirst(const T& item) { 
+	size_t index = 0; // Initialize index to 0
     Node<T>* current = head;
 
     // Check for empty list
@@ -326,17 +328,17 @@ size_t LinkedList<T>::FindFirst(const T& item) { //Return the position of the fi
         cout << "\nList is empty" << endl;
         return -1;
 	}
-	// cout << "\n\nTarget item to find is " << item;
 
-    while (current != nullptr || current->next != nullptr) {
+    while (current != nullptr) {
         if (current->data == item) {
 			cout << "Target " << item << " found at index : " << index << endl;
-			return index; // Return the index of the first occurrence
+			return index; // Return the index of the first occurrence if found
         }
         current = current->next;
         index++;
 	}
-	
+	cout << "Target " << item << " not found in the list" << endl;
+	return get_numItems(); // Return the size of the list if item is not found
  }
 
 

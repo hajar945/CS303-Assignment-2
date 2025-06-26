@@ -62,10 +62,10 @@ public:
     bool isEmpty();
 
 	// Function to insert a node at an index
-    void insert(T data, int index);
+    void insert(const T& data, size_t index);
 
     // Function to remove an item at an index
-    bool remove(int index);
+    bool remove(size_t index);
 
     //// Return the index of the first occurrence of item if it's found 
 	size_t FindFirst(const T& item);
