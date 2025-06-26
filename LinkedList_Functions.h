@@ -1,6 +1,7 @@
 #pragma once
 #ifndef LINKEDLIST_FUNCTIONS_H
 #define LINKEDLIST_FUNCTIONS_H
+#include <algorithm> // Required for std::find
 
 #include "LinkedList.h"
 #include <iostream>
@@ -313,6 +314,32 @@ bool LinkedList<T>::remove(int index) { // https://www.geeksforgeeks.org/cpp-pro
     return true;
 
 }
+
+template <typename T>
+size_t LinkedList<T>::FindFirst(const T& item) { //Return the position of the first occurrence 
+                                                // of item if it is found. Return the size 
+    size_t index = 0; // Initialize index to 0
+    Node<T>* current = head;
+
+    // Check for empty list
+    if (head == NULL) {
+        cout << "\nList is empty" << endl;
+        return -1;
+	}
+	// cout << "\n\nTarget item to find is " << item;
+
+    while (current != nullptr || current->next != nullptr) {
+        if (current->data == item) {
+			cout << "Target " << item << " found at index : " << index << endl;
+			return index; // Return the index of the first occurrence
+        }
+        current = current->next;
+        index++;
+	}
+	
+ }
+
+
 
 // Function to print the linked list.
 template <typename T>

@@ -67,6 +67,9 @@ public:
     // Function to remove an item at an index
     bool remove(int index);
 
+    //// Return the index of the first occurrence of item if it's found 
+	size_t FindFirst(const T& item);
+
     // Function to print the linked list.
     void print();
 };
