@@ -7,7 +7,7 @@
 	x 3) Insert some integer values onto the stack.
 	x 4) Remove an element from the stack.
 	x 5) Find the Top of the stack.
-	6) Find average value of the stack elements. */
+	x 6) Find average value of the stack elements. */
 #include <iostream>
 #include <vector> // Include the vector library
 
@@ -32,9 +32,10 @@ public:
 
 
 	int findavg(int total, int avg) {
+		
 		for (size_t i = 0; i < vec.size(); i++) {
 			cout << vec[i] << " ";
-			total = total + static_cast<int>(i);
+			total = total + vec[i];
 		}
 		avg = (total / static_cast<int>(vec.size()));
 		return avg; // 6) Find average value of the stack elements.

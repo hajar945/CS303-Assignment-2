@@ -82,15 +82,19 @@ int main() {
 
 	cout << "\n\n ------ STACK IMPLEMENTATION ---\n\n";
 	
-    vector_based_stack mystack; // x 1) Create a stack object.
+    vector_based_stack mystack; //  1) Create a stack object.
 
-	cout << "Is the stack empty? " << (mystack.empty() ? "Yes" : "No") << endl; // x 2) Check the stack is empty or not.
+    cout << "Is the stack empty? " << (mystack.empty() ? "Yes" : "No") << endl; // x 2) Check the stack is empty or not.
 
-	mystack.push(30); // x 3) Insert some integer values onto the stack.
+
+	mystack.push(30); //  3) Insert some integer values onto the stack.
     mystack.push(40);
     mystack.push(60);
     mystack.push(70);
     mystack.push(90);
+
+    cout << "Is the stack empty? " << (mystack.empty() ? "Yes" : "No") << endl; // x 2) Check the stack is empty or not.
+
 
 	cout << "Top element of the stack: " << mystack.top() << endl; // x 5) Find the Top of the stack.
 
@@ -98,9 +102,8 @@ int main() {
 
 	cout << "After popping the top element, the new top is: " << mystack.top() << endl;
 
-    int total = 0; // Declare and initialize 'total'  
-    int avg = 0;   // Declare and initialize 'avg'  
+    
 
-    cout << "Average is : " << mystack.findavg(total, avg);
+    cout << "\nAverage is : " << mystack.findavg(0, 0);
     return 0;
 }
