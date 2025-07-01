@@ -33,9 +33,10 @@ public:
 
 
 	int findavg(int total, int avg) {
+		
 		for (size_t i = 0; i < vec.size(); i++) {
 			cout << vec[i] << " ";
-			total = total + static_cast<int>(i);
+			total = total + vec[i];
 		}
 		avg = (total / static_cast<int>(vec.size()));
 		return avg; // 6) Find average value of the stack elements.
