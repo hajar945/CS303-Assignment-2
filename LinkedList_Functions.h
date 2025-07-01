@@ -1,7 +1,7 @@
 #pragma once
 #ifndef LINKEDLIST_FUNCTIONS_H
 #define LINKEDLIST_FUNCTIONS_H
-#include <algorithm> // Required for std::find
+
 
 #include "LinkedList.h"
 #include <iostream>
@@ -234,26 +234,14 @@ void LinkedList<T>::insert(const T& data, size_t index) { // https://takeuforwar
         return;
     }
 
-    /* // ListNode* newnode = new ListNode(value);
-    cout << "\nEnter the data to insert: ";
-
-    if (!(cin >> data)) { // Check if input is valid
-        cout << "Invalid input. Please enter a valid data type." << endl;
-        cin.clear(); // Clear the error flag
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
-        return; // Exit the function
-    } can't do this because data is constant 
-
-    cout << "\n\nEnter the index to insert the new node: ";
-    cin >> index;*/
-
 	cout << "\nThe data to insert is: " << data << endl;
 	cout << " \tat the index: " << index << endl;
+
     // Create the new Node
     Node<T>* newNode = new Node<T>(data);
 
-    if (index < get_numItems()) { // Index can't be equal to len
-        if (index == 0) {                 // and can't be negative 
+    if (index < get_numItems()) { 
+        if (index == 0) {                 
             newNode->next = head;
             head = newNode;
         }
@@ -272,7 +260,7 @@ void LinkedList<T>::insert(const T& data, size_t index) { // https://takeuforwar
 }
 
 //Remove the item at position index. Return true if successful;
-// return false if index is beyond the end of the list.
+//   return false if index is beyond the end of the list.
 template <typename T>
 bool LinkedList<T>::remove(size_t index) { // https://www.geeksforgeeks.org/cpp-program-for-deleting-a-node-in-a-linked-list/#3-delete-a-node-at-a-specific-position
     cout << "Please enter an index to remove: ";
@@ -282,9 +270,7 @@ bool LinkedList<T>::remove(size_t index) { // https://www.geeksforgeeks.org/cpp-
         cout << "Invalid index. No items removed" << endl;
         return false;
     }
-    // Node<T>* head = getHead(); // Get the head of the list // // Use the class's 'head' 
-                                                                 // pointer directly so changes affect the real list
-
+                                                   
     if (head == nullptr) {
         cout << "List is empty." << endl;
         return false;
@@ -340,7 +326,6 @@ size_t LinkedList<T>::FindFirst(const T& item) {
 	cout << "Target " << item << " not found in the list" << endl;
 	return get_numItems(); // Return the size of the list if item is not found
  }
-
 
 
 // Function to print the linked list.

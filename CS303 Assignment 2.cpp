@@ -1,6 +1,5 @@
 // CS303 Assignment 2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include <algorithm> // Required for std::find
 
 #include <iostream>
 #include <vector> 
@@ -75,7 +74,7 @@ int main() {
     list.print();
 
 
-    list.FindFirst('B');
+    list.FindFirst('B'); // Find the first occurence of 'B'
     list.print();
 
 

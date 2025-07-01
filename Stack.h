@@ -7,14 +7,15 @@
 	x 3) Insert some integer values onto the stack.
 	x 4) Remove an element from the stack.
 	x 5) Find the Top of the stack.
-	6) Find average value of the stack elements. */
+	x 6) Find average value of the stack elements. */
+#ifndef STACK_H
+#define STACK_H
 #include <iostream>
 #include <vector> // Include the vector library
 
 
 using namespace std;
 
-// template<typename T> // https://www.youtube.com/watch?v=eShL450T8UE&ab_channel=ProfessorKevinWortman
 class vector_based_stack { // https://www.youtube.com/watch?v=73JNdV3UiYg&ab_channel=KenUrban
 private:
 	vector<int>vec;
@@ -40,3 +41,6 @@ public:
 		return avg; // 6) Find average value of the stack elements.
 	}
 };
+#include "Stack.h"
+
+#endif
