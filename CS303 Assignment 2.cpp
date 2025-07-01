@@ -62,7 +62,7 @@ int main() {
 
     cout << "Number of items: " << list.get_numItems() << endl;
 
-    list.insert('G', 2);
+    list.insert('B', 2);
 
     cout << endl << endl;
     // Print the list

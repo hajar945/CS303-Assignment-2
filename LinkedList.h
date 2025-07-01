@@ -1,6 +1,7 @@
 #pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+
 using namespace std;
 
 // Node class to represent a node of the linked list.
