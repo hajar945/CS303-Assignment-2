@@ -21,7 +21,11 @@ Using headNode() and tailNode() will return the current head node and tail node 
 ![image](https://github.com/user-attachments/assets/db5e0ab8-b282-4d5a-907e-33f574aeae09)
 
 Using the isEmpty() function will return whether the list is empty or not. By implemenating either an if-else statment or, as done below, a ternary operator, the user can output a message as to whether or not the list is empty.
-"Yes" will display when the list is empty (condition is true) and "No" will display with the list is not empty (condition is false). Below, isEmpty is executed while the list contains some values.
+"Yes" will display when the list is empty (condition is true) and "No" will display with the list is not empty (condition is false). 
+
+![image](https://github.com/user-attachments/assets/c6c15d53-9167-4099-b46a-f68c1c20f00d)
+
+Below, isEmpty is executed while the list contains some values.
 
 ![image](https://github.com/user-attachments/assets/bcef4698-5bed-487d-af2a-590620424507)
 
