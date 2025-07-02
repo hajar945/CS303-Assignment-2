@@ -4,6 +4,7 @@ The second part of the program allows the user to create a stack of integer valu
 
 
 The user must create a linked list object and declare the desired data type. Below, the data type is 'char'. Use the function 'push_front' to load elements of the same selected data type into the linked list.
+
 ![image](https://github.com/user-attachments/assets/eaccd9a3-d7f7-459c-b09b-657c02d0cfe7)
 
 
